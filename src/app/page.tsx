@@ -1,3 +1,4 @@
+import Image from "next/image";
 import RegistrationForm from "@/components/RegistrationForm";
 import { EatisoLogo, EatisoMark } from "@/components/EatisoLogo";
 
@@ -23,7 +24,21 @@ export default function HomePage() {
               <EatisoLogo size={40} />
             </div>
 
-            <div className="mt-10 lg:mt-auto">
+            {/* Featured lifestyle photo — centered */}
+            <div className="my-8 flex justify-center lg:my-10">
+              <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-3xl ring-4 ring-white/20 shadow-2xl">
+                <Image
+                  src="/image.png"
+                  alt="The eatiso family sharing a meal together"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 80vw, 320px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="lg:mt-auto">
               <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                 Welcome to the
                 <br />
