@@ -257,8 +257,8 @@ export default function RegistrationForm() {
         </label>
 
         {!file ? (
-          <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-300 bg-white px-4 py-8 text-center transition hover:border-indigo-400 hover:bg-indigo-50/40">
-            <span className="text-sm font-medium text-indigo-600">
+          <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-300 bg-white px-4 py-8 text-center transition hover:border-brand-purple hover:bg-brand-purple/5">
+            <span className="text-sm font-semibold text-brand-purple">
               Click to choose a file
             </span>
             <span className="mt-1 text-xs text-slate-400">
@@ -311,7 +311,7 @@ export default function RegistrationForm() {
               <div className="mt-3">
                 <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
                   <div
-                    className="h-full rounded-full bg-indigo-500 transition-all"
+                    className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-orange transition-all"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
@@ -341,7 +341,7 @@ export default function RegistrationForm() {
       <button
         type="submit"
         disabled={submitting || uploadStatus === "uploading"}
-        className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-lg bg-gradient-to-r from-brand-purple to-brand-purple-dark px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-purple/25 transition hover:shadow-brand-purple/40 hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100"
       >
         {submitting ? "Submitting…" : "Submit Registration"}
       </button>
@@ -371,10 +371,10 @@ function Field({
 
 function inputClass(error?: string) {
   return [
-    "w-full rounded-lg border bg-white px-3 py-2 text-sm text-slate-900 outline-none transition",
-    "placeholder:text-slate-400 focus:ring-2 focus:ring-indigo-200",
+    "w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition",
+    "placeholder:text-slate-400 focus:ring-2 focus:ring-brand-purple/25",
     error
-      ? "border-red-400 focus:border-red-400"
-      : "border-slate-300 focus:border-indigo-400",
+      ? "border-red-400 focus:border-red-400 focus:ring-red-200"
+      : "border-slate-300 focus:border-brand-purple",
   ].join(" ");
 }

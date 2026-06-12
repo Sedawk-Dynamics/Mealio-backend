@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Registration } from "@/types/registration";
+import { EatisoLogo } from "@/components/EatisoLogo";
 
 /** Force a Cloudinary URL to download instead of opening inline. */
 function toDownloadUrl(url: string): string {
@@ -97,15 +98,8 @@ export default function AdminDashboard() {
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">
-            Registrations
-          </h1>
-          <p className="text-sm text-slate-500">
-            {rows.length} record{rows.length === 1 ? "" : "s"}
-          </p>
-        </div>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-5">
+        <EatisoLogo size={40} />
         <button
           onClick={handleLogout}
           className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
@@ -114,13 +108,20 @@ export default function AdminDashboard() {
         </button>
       </div>
 
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-slate-900">Registrations</h1>
+        <p className="text-sm text-slate-500">
+          {rows.length} record{rows.length === 1 ? "" : "s"}
+        </p>
+      </div>
+
       <div className="mb-4">
         <input
           type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by name, email, phone or Aadhaar…"
-          className="w-full max-w-md rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200"
+          className="w-full max-w-md rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/25"
         />
       </div>
 
@@ -178,7 +179,7 @@ export default function AdminDashboard() {
                         href={row.aadhaar_document_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-indigo-600 hover:underline"
+                        className="font-medium text-brand-purple hover:underline"
                       >
                         View
                       </a>
